@@ -10,7 +10,7 @@ void main(){
     for (x = 1; x <=i ; x++) {        //loop for the finding the divisors 
       if (i%x==0) {
         count = count + 1;            //if you want to know how many divisors use this
-        sum = sum + 1;                //to find the sum of the divisors
+        sum = sum + x;                //to find the sum of the divisors
       }
     }
   }
