@@ -19,7 +19,6 @@ def init_socket():
 		print ("Socket successfully created")
 		return s
 	except socket.error as err:
-		#raise
 		print "socket creation failed with error %s" %(err)
 
 def get_ip(Host):
@@ -27,25 +26,23 @@ def get_ip(Host):
 		host_ip = socket.gethostbyname(Host)
 		return host_ip
 	except socket.gaierror:
-		#raise
 		print "there was an error resolving the host"
     	sys.exit()
 
-def connecttohost(ip,port):
+def connecttohost(ip,port,s):
 	try:
 		s.connect((ip,port))
 		print ("Connection successfully to %s on %s" %(sys.argv[1], port))
 		print s.recv(1024)
 		s.close
 	except socket.error as serr:
-		if socket.error != errno.ECONNREFUSED:
-			raise serr
-		#print "connection Failed %s " %exc
+		print "connection Failed %s " %serr
 
 def main():
 	s = init_socket()
 	ip = get_ip(sys.argv[1])
 	port = service_port[sys.argv[2]]
+	connecttohost(ip,port,s)
 
 if __name__ == "__main__":
 	main()

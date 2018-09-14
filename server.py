@@ -19,7 +19,6 @@ def init_socket():
 		print ("Socket successfully created")
 		return s
 	except socket.error as err:
-		#raise
 		print "socket creation failed with error %s" %(err)
 
 def get_ip(Host):
@@ -27,7 +26,6 @@ def get_ip(Host):
 		host_ip = socket.gethostbyname(Host)
 		return host_ip
 	except socket.gaierror:
-		#raise
 		print "there was an error resolving the host"
     	sys.exit()
 
