@@ -15,7 +15,6 @@ service_port = {
 	"SMTP":25,
 	"HTTPS":443,
 
-
 }
 
 def init_socket():
