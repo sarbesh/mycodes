@@ -10,6 +10,11 @@ service_port = {
 
 	"http":80,
 	"ftp":21,
+	"ssh":22,
+	"Telnet":23,
+	"SMTP":25,
+	"HTTPS":443,
+
 
 }
 
@@ -33,8 +38,6 @@ def connecttohost(ip,port,s):
 	try:
 		s.connect((ip,port))
 		print ("Connection successfully to %s on %s" %(sys.argv[1], port))
-		print s.recv(1024)
-		s.close
 	except socket.error as serr:
 		print "connection Failed %s " %serr
 
@@ -43,6 +46,12 @@ def main():
 	ip = get_ip(sys.argv[1])
 	port = service_port[sys.argv[2]]
 	connecttohost(ip,port,s)
+	while 1:
+		data = raw_input()
+		s.send(data)
+		data = s.recv(1024)
+		print data
+	s.close()
 
 if __name__ == "__main__":
 	main()

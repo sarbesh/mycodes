@@ -29,31 +29,22 @@ def get_ip(Host):
 		print "there was an error resolving the host"
     	sys.exit()
 
-def connecttohost(ip,port):
-	try:
-		s.connect((ip,port))
-		print ("Connection successfully to %s on %s" %(sys.argv[1], port))
-		print s.recv(1024)
-		s.close
-	except socket.error as serr:
-		if socket.error != errno.ECONNREFUSED:
-			raise serr
-		#print "connection Failed %s " %exc
-
 def main():
 
-    HOST = ''                 # Symbolic name meaning all available interfaces
-    PORT = 50007              # Arbitrary non-privileged port
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    HOST = "127.0.0.1"                 # Symbolic name meaning all available interfaces
+    PORT = service_port[sys.argv[1]]              # Arbitrary non-privileged port
+    s = init_socket()
     s.bind((HOST, PORT))
-    s.listen(1)
+	#print "Listening for connection on", PORT
+    s.listen(5)
     conn, addr = s.accept()
     print 'Connected by', addr
     while 1:
-        data = conn.recv(1024)
-        if not data: break
-        conn.sendall(data)
-conn.close()
-
+		data = conn.recv(1024)
+		print data
+		conn.sendall(data)
+		if not data:
+			break
+	conn.close()
 if __name__ == "__main__":
 	main()
