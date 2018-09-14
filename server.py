@@ -42,9 +42,10 @@ def main():
     while 1:
 		data = conn.recv(1024)
 		print data
+		data = raw_input()
 		conn.sendall(data)
 		if not data:
 			break
-	conn.close()
+	#conn.close()
 if __name__ == "__main__":
 	main()
