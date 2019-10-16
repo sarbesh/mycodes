@@ -41,6 +41,12 @@ def get_ip(Host):
 		print "there was an error resolving the host"
     	sys.exit()
 
+def binding(HOST, PORT):
+	try:
+		s.bind((HOST,PORT))
+	except socket.error as e:
+		print "Can't bind port %s as the port is already in use" %e
+
 def main():
 
     HOST = "127.0.0.1"                 # Symbolic name meaning all available interfaces

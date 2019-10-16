@@ -40,6 +40,7 @@ def connecttohost(ip,port,s):
 	except socket.error as serr:
 		print "connection Failed %s " %serr
 
+
 def main():
 	s = init_socket()
 	ip = get_ip(sys.argv[1])
