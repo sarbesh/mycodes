@@ -1,0 +1,7 @@
+*.out
+*.pyc
+/bin/
+/out/
+.idea
+.settings
+.iml
