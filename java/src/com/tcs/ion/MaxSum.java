@@ -1,7 +1,14 @@
 package com.tcs.ion;
 
-//FFor every decrease in value to its predecessor given by space separated inputs create a new sum.
-//Find the max of these sum
+//Determine from this space saperated array what will be the maximum profit one can make.
+//        rules- the money has to be in increasing order like 2,3,200 the the profit is 205
+//
+//        Array - 2 30 600 5 4 200 1 6
+//
+//        Return the maximum profit one can make.
+//
+//        Input - 1.no element in an array
+//        2.The array.
 
 import java.util.*;
 
