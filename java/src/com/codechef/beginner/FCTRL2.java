@@ -5,6 +5,8 @@ import java.lang.*;
 import java.io.*;
 import java.math.*;
 
+//Q:- https://www.codechef.com/submit/FCTRL2
+
 public class FCTRL2 {
 
     public static void main(String[] args) {

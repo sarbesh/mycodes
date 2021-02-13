@@ -4,6 +4,8 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
+//Q:- https://www.codechef.com/FEB21C/submit/FROGS
+
 public class FROGS {
 
     public static void main(String[] args) {

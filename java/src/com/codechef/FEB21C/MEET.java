@@ -4,6 +4,8 @@ import java.lang.*;
 import java.io.*;
 import java.util.*;
 
+//Q:- https://www.codechef.com/FEB21C/submit/MEET
+
 public class MEET {
 
     public static void main (String[] args) throws java.lang.Exception

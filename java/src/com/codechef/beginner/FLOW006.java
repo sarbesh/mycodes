@@ -4,6 +4,8 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
+//Q:- https://www.codechef.com/submit/FLOW006
+
 public class FLOW006 {
     public static void main(String[] args) {
         FastReader in = new FastReader();

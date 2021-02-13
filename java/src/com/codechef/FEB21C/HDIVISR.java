@@ -1,5 +1,7 @@
 package com.codechef.FEB21C;
 
+//Q:- https://www.codechef.com/FEB21C/submit/HDIVISR
+
 import java.util.*;
 
 public class HDIVISR {

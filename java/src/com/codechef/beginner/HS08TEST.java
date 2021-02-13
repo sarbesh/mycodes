@@ -4,6 +4,8 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
+//Q:- https://www.codechef.com/submit/HS08TEST
+
 public class HS08TEST {
 
     public static void main (String[] args) throws java.lang.Exception
