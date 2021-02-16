@@ -4,7 +4,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-/* Name of the class has to be "Main" only if the class is public. */
+/* Name of the class has to be "FLOW004" only if the class is public. */
 public class ENGXOR
 {
     static int[] num_to_bits = new int[] { 0, 1, 1, 2, 1, 2, 2,
