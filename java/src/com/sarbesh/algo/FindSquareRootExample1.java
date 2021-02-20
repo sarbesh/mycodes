@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class FindSquareRootExample1
 {
-    public static void main(String[] args)
+    public static void main(String args[]) throws Exception
     {
         System.out.print("Enter a number: ");
 //creating object of the Scanner class  

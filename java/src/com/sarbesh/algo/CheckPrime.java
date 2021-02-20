@@ -4,7 +4,7 @@ import java.lang.*;
 import java.math.*;
 
 public class CheckPrime{
-	public static void main(String[] args) throws Exception{
+	public static void main(String args[]) throws Exception{
 		int N = 17;
 		System.out.println(check1(N));
 	}
