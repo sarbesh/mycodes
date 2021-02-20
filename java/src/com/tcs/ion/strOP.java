@@ -1,11 +1,11 @@
 //given a string find number of operations(remove, replace, insert) 
 //that can be performed on it to get second given string
 //Example:
-//input: 	morning						convent
-//		bring						contant
-//output	3							2
-//		remove 'm'					convert 'v' -> 't'
-//		replace 'o' -> 'b'			convert 'e' -> 'a'
+//input: 	morning			convent
+//		bring			contant
+//output	3			2
+//		remove 'm'		convert 'v' -> 't'
+//		replace 'o' -> 'b'	convert 'e' -> 'a'
 //		remove 'n'
 
 import java.util.*;
