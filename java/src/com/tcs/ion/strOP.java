@@ -2,11 +2,11 @@
 //that can be performed on it to get second given string
 //Example:
 //input: 	morning						convent
-//			bring						contant
+//		bring						contant
 //output	3							2
-//			remove 'm'					convert 'v' -> 't'
-//			replace 'o' -> 'b'			convert 'e' -> 'a'
-//			remove 'n'
+//		remove 'm'					convert 'v' -> 't'
+//		replace 'o' -> 'b'			convert 'e' -> 'a'
+//		remove 'n'
 
 import java.util.*;
 import java.lang.*;
@@ -17,5 +17,6 @@ public class strOP{
 		Scanner sc = new Scanner(System.in);
 		String A = sc.nextLine();
 		String B = sc.nextLine();
+		//solution pending
 	}
 }
