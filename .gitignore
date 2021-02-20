@@ -5,6 +5,7 @@
 .idea
 .settings
 .iml
+*.class
 
 
 /venv/

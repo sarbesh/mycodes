@@ -1,61 +1,27 @@
-package com.codechef.FEB21C;
+package com.codechef.beginner;
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-//Q:- https://www.codechef.com/FEB21C/submit/TEAMNAME
-
 
 // Remember that the class name should be "FLOW004" and should be "public".
-public class TEAMNAME {
+public class FLOW004 {
     public static void main(String[] args) throws Exception {
         // System.in and System.out are input and output streams, respectively.
         FastReader in  = new FastReader();
-        // Read the number of test casese.		
-        int T = in.nextInt();
         BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
+        // Read the number of test casese.
+        int T = in.nextInt();
         while (T-- > 0) {
-            int N = in.nextInt();
-            String[] names = in.nextLine().split(" ");
-            int ans = maxTeamName(names, N);
+            // Read the numbers a and b.
+            String a = in.nextLine();
+
+            // Compute the sum of a and b.
+            int ans = Integer.parseInt(a.substring(0,1)) + (Integer.parseInt(a)%10);
             output.write(ans+"\n");
         }
         output.flush();
-    }
-
-    static int maxTeamName(String[] names,int N){
-        Arrays.sort(names);
-//        System.out.println(Arrays.toString(names));
-        String A,B,a,b;
-        int count = 0;
-        for (int i=0;i<N;i++){
-            for (int j =i+1;j<N;j++){
-                A = names[i];
-                B = names[j];
-
-                a=A.substring(0,1);
-                b=B.substring(0,1);
-
-                A = A.replaceFirst(a,b);
-                B = B.replaceFirst(b,a);
-
-
-                System.out.println();
-
-                if(a.equals(b)){
-//                    System.out.println(a[0]+", "+b[0]);
-                }
-                else if(A.equals(B)){
-//                    System.out.println(A+", "+B);
-                }
-                else if ((Arrays.binarySearch(names,A)<0) && (Arrays.binarySearch(names,B)<0)){
-//                    System.out.println(A+", "+B);
-                    count+=2;
-                }
-            }
-        }
-        return count;
     }
 
     static class FastReader{

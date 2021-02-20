@@ -1,5 +1,7 @@
 package com.sarbesh.algo;
 
+import java.util.Arrays;
+
 public class QuickSort {
     /* A utility function to print array of size n */
     static void printArray(int arr[])
@@ -15,6 +17,7 @@ public class QuickSort {
     {
         int arr1[] = {10, 7, 8, 9, 1, 5};
         int arr2[] = {10, 7, 8, 9, 1, 5};
+        int[] arr3 = {10, 7, 8, 9, 1, 5};
         int n = arr1.length;
 
         QuickSort ob = new QuickSort();
@@ -27,7 +30,12 @@ public class QuickSort {
         final long startTime2 = System.nanoTime();
         ob.sort2(arr2, 0, n-1);
         final long endTime2 = System.nanoTime();
-        System.out.println("Method1 Total execution time: " + (endTime2 - startTime2));
+        System.out.println("Method2 Total execution time: " + (endTime2 - startTime2));
+
+        final long startTime3 = System.nanoTime();
+        Arrays.stream(arr3).sorted().forEach(System.out::print);
+        final long endTime3 = System.nanoTime();
+        System.out.println("\nMethod3 Total execution time: " + (endTime3 - startTime3));
 
 //        System.out.println("sorted array");
         printArray(arr1);

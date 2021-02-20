@@ -1,6 +1,6 @@
 package com.sarbesh.algo;
 
-public class BubleSort {
+public class BubbleSort {
 
     static void printArray(int arr[])
     {
@@ -17,7 +17,7 @@ public class BubleSort {
         int arr2[] = {10, 7, 8, 9, 1, 5};
         int n = arr1.length;
 
-        BubleSort ob = new BubleSort();
+        BubbleSort ob = new BubbleSort();
 
         final long startTime = System.nanoTime();
         ob.bubbleSort1(arr1);

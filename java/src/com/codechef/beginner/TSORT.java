@@ -1,61 +1,62 @@
-package com.codechef.FEB21C;
+package com.codechef.beginner;
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-//Q:- https://www.codechef.com/FEB21C/submit/TEAMNAME
+public class TSORT {
 
-
-// Remember that the class name should be "FLOW004" and should be "public".
-public class TEAMNAME {
     public static void main(String[] args) throws Exception {
         // System.in and System.out are input and output streams, respectively.
         FastReader in  = new FastReader();
-        // Read the number of test casese.		
-        int T = in.nextInt();
         BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
+        // Read the number of test casese.
+        int T = in.nextInt();
+        int[] N = new int[T];
         while (T-- > 0) {
-            int N = in.nextInt();
-            String[] names = in.nextLine().split(" ");
-            int ans = maxTeamName(names, N);
-            output.write(ans+"\n");
+            // Read the numbers a and b.
+            N[T] = in.nextInt();
         }
+//        output.write(Arrays.toString(N));
+//        quickSort(N,0,N.length-1);
+//        System.out.println(Arrays.toString(N));
+//        output.write(Arrays.toString(N));
+        Arrays.stream(N).sorted().forEach(System.out::println);
         output.flush();
     }
 
-    static int maxTeamName(String[] names,int N){
-        Arrays.sort(names);
-//        System.out.println(Arrays.toString(names));
-        String A,B,a,b;
-        int count = 0;
-        for (int i=0;i<N;i++){
-            for (int j =i+1;j<N;j++){
-                A = names[i];
-                B = names[j];
+    static void quickSort(int[] arr, int low, int high)
+    {
+        if (low < high)
+        {
+            /* pi is partitioning index, arr[pi] is
+              now at right place */
+            int pi = partition(arr, low, high);
 
-                a=A.substring(0,1);
-                b=B.substring(0,1);
+            // Recursively sort elements before
+            // partition and after partition
+            quickSort(arr, low, pi-1);
+            quickSort(arr, pi+1, high);
+        }
+    }
 
-                A = A.replaceFirst(a,b);
-                B = B.replaceFirst(b,a);
+    static void swap(int[] arr, int i, int j){
+        int temp = arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
 
-
-                System.out.println();
-
-                if(a.equals(b)){
-//                    System.out.println(a[0]+", "+b[0]);
-                }
-                else if(A.equals(B)){
-//                    System.out.println(A+", "+B);
-                }
-                else if ((Arrays.binarySearch(names,A)<0) && (Arrays.binarySearch(names,B)<0)){
-//                    System.out.println(A+", "+B);
-                    count+=2;
-                }
+    static int partition(int[] arr, int low, int high){
+        int pivotal = arr[high];
+        int i = low-1;
+        for (int j=low;j<high ;j++ ){
+            if(arr[j]<=pivotal){
+                i++;
+                swap(arr,i,j);
             }
         }
-        return count;
+        swap(arr,i+1,high);
+        return i+1;
     }
 
     static class FastReader{
@@ -100,6 +101,4 @@ public class TEAMNAME {
         }
 
     }
-
-
 }
