@@ -16,11 +16,11 @@ import java.io.*;
 public class strOP{
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String A = "convent";//sc.nextLine();
-		String B = "contant";//sc.nextLine();
+		String A = sc.nextLine();
+		String B = sc.nextLine();
 		char[] ca = A.toCharArray();
 		char[] cb = B.toCharArray();
-		//solution pending
+		//solution pending: partial solution
 		int lena = A.length();
 		int lenb = B.length();
 		int diff=0;
