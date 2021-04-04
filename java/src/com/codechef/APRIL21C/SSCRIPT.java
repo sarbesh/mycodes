@@ -15,37 +15,26 @@ public class SSCRIPT {
 		while(T-->0){
 			int N = in.nextInt();
 			int K = in.nextInt();
-			char[] chars = new char[K];
-			Arrays.fill(chars,'*');
-			String rs = new String(chars);
-			String s = in.nextLine();
-			String[] sArray = s.split("");
-			boolean check = false;
-			if(K<=N){
-				if(K==1){
-					for(int index=0;index<N;index++){
-						if(sArray[index].equals("*")){
-							check=true;
-							break;
-						}
+			String S = in.nextLine();
+			String[] strArr=S.split("");
+			List<Integer> sol=new ArrayList<>();
+			int i,count=0,flag=0;
+			for(i=0;i<N;i++){
+				if(strArr[i].equals("*")) sol.add(1);
+				else sol.add(0);
+			}
+			for (i=0;i<N;i++ ) {
+				if(sol.get(i)==1){
+					count++;
+				} else{
+					if(count==K){
+						flag=1;
 					}
-				} else {
-					for (int index=0;index<N-K;index++){
-						int inrIndex=0;
-						int[] indexArr = new int[N];
-						if(sArray[index].equals("*")&&sArray[index+K-1].equals("*")){
-							indexArr[inrIndex]=index;
-							inrIndex++;
-							String subStr = s.substring(index,index+K);
-							if(subStr.equals(rs)){
-								check =true;
-								break;
-							}
-						}
-					}
+					count=0;
 				}
 			}
-			if(check) out.write("YES\n");
+			if(count==K) flag=1;
+			if(flag==1) out.write("YES\n");
 			else out.write("NO\n");
 		}
 		out.flush();
