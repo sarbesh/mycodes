@@ -1,3 +1,5 @@
+package com.codechef.beginner;
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
