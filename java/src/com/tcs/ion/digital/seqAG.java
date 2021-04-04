@@ -4,6 +4,7 @@
 // Example:
 //input		10	12	15
 //output	7	9	14
+//solution:- except for 1,2 if odd:- N-1; if even N-3
 
 import java.util.*;
 import java.lang.*;

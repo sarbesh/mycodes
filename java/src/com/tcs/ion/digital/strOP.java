@@ -24,9 +24,11 @@ public class strOP{
 		int lena = A.length();
 		int lenb = B.length();
 		int diff=0;
+		//checking how many elements to be removed
 		if(lena>lenb){
 			diff=lena-lenb;
 		} else diff=lenb-lena;
+		//int for number of mismatches between words. char from B if not Present in A then ++
 		int cnt=0;
 		for(int i=0;i<cb.length;i++){
 			char b = cb[i];
