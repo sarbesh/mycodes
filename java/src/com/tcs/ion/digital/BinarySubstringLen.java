@@ -1,6 +1,8 @@
 import java.util.*;
 import java.lang.*;
 
+//Question: https://github.com/sarbesh/mycodes/blob/dev/java/src/com/tcs/ion/digital/BinarySubstringLen.jpeg
+
 class BinarySubstringLen{
 	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);

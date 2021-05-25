@@ -12,6 +12,7 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
+import java.math.*;
 
 public class strOP{
 	public static void main(String[] args) {
@@ -20,33 +21,29 @@ public class strOP{
 		String B = sc.nextLine();
 		char[] ca = A.toCharArray();
 		char[] cb = B.toCharArray();
-		//solution pending: partial solution
 		int lena = A.length();
 		int lenb = B.length();
-		int diff=0;
-		//checking how many elements to be removed
-		if(lena>lenb){
-			diff=lena-lenb;
-		} else diff=lenb-lena;
-		//int for number of mismatches between words. char from B if not Present in A then ++
-		int cnt=0;
-		for(int i=0;i<cb.length;i++){
-			char b = cb[i];
-			boolean fnd = false;
-			for(int j=0;j<ca.length;j++){
-				if(ca[j]==b){
-					fnd=true;
-					break;
-				}
-			}
-			if(!fnd){
-				cnt++;
-			}
-		}
-		prnt(diff+cnt);
+		int ans = lcs(ca, cb,lena, lenb);
+		prnt(ans);
 	}
 
 	static void prnt(int N){
 		System.out.println(N);
+	}
+
+	public static int lcs(char[] X, char[] Y, int m, int n){
+		int dp[][] = new int[m+1][n+1];
+		for (int i =0;i<=m ;i++ ) {
+			for (int j=0;j<=n ;j++ ) {
+				if(i==0||j==0){
+					dp[i][j]=0;
+				} else if(X[i-1]==Y[j-1]){
+					dp[i][j] = dp[i-1][j-1]+1; 
+				}else{
+					dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);
+				}
+			}
+		}
+		return dp[m][n];
 	}
 }
