@@ -1,0 +1,7 @@
+---
+baseItem:
+  parentitem:
+    childItem1:
+      logic: '("true".equals(val1) || ("true".equals(vale2) && "false".equals(val3))'
+    childItem2:
+      logic: '"(true".equals(val5) || (("true".equals(vale2) && "false".equals(val3)) || ("true".equals(vale1) && "false".equals(val4)))'

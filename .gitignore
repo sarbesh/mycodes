@@ -6,6 +6,7 @@
 .settings
 .iml
 *.class
+*.iml
 
 
 /venv/

@@ -6,57 +6,33 @@ import java.math.*;
 
 
 // Remember that the class name should be "Main" and should be "public".
-public class MEXSTR {
+public class Main {
 	public static void main(String[] args) throws Exception {
 		FastReader in  = new FastReader();
 		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
 		// Read the number of test casese.	
 		int T = in.nextInt();
 		while(T-->0){
-			int max = (int)10^6;
-			int[] num0 = new int[max];
-			int[] num1 = new int[max];
-			int[] dp0 = new int[max+2];
-			int[] dp1 = new int[max+2];
+			String[] inputs = in.nextLine().split(" ");
+			long D = Long.parseLong(inputs[0]);
+			long d = Long.parseLong(inputs[1]);
+			long P = Long.parseLong(inputs[2]);
+			long Q = Long.parseLong(inputs[3]);
 
+			long i = D/d;
+			long n = i-1;
+			long q = D%d;
 
+			long ans=0;
+
+// 			ans = (d)*(((i)*P)+Q((n*(n-1))/2));
+// 			ans += (q)*(P+(Q*i));
+
+			ans = ((((i*P)+(((n*(n+1))/2)*Q))*d)+((P+(i*Q))*q));
+			out.write(ans+"\n");		
 		}
 		out.flush();
 	}
-
-//	static void funct(FastReader in, BufferedWriter out){
-//		String input = in.nextLine();
-//		String[] inpArr = input.split("");
-//		int n = input.length();
-//		int pos = -1;
-//		for (int i=0;i<n ;i++ ) {
-//			if(Integer.parseInt(inpArr[i])==0){
-//				for (int j=pos+1;j<=i ;j++ ) {
-//					num0[j]=i
-//				}
-//				pos=i;
-//			}
-//		}
-//		for (int i = pos+1;i<n ;i++ ) {
-//			num0[i]=n;
-//		}
-//		if (num0[0]==n) {
-//			out.write("0\n");
-//			return 0;
-//		}
-//		pos=-1;
-//		for (int i=0;i<n ; i++) {
-//			if(Integer.parseint(inpArr[i])==1){
-//				for (int j=pos+1;j<=i ;j++ ) {
-//					num1[j]=i
-//				}
-//				pos=i;
-//			}
-//		}
-//		if () {
-//
-//		}
-//	}
 	
 	static class FastReader{
 	    BufferedReader br;

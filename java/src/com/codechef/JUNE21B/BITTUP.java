@@ -6,57 +6,58 @@ import java.math.*;
 
 
 // Remember that the class name should be "Main" and should be "public".
-public class MEXSTR {
+public class Main {
 	public static void main(String[] args) throws Exception {
 		FastReader in  = new FastReader();
 		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
+		long MODULO = 1000000007;
+		long[] longArr = new Long[MODULO];
+		longArr[1] = 2;
+		for(int i=2; i<MODULO; i++){
+			longArr[i] = 2*longArr[i-1]%MODULO;
+		}
 		// Read the number of test casese.	
 		int T = in.nextInt();
 		while(T-->0){
-			int max = (int)10^6;
-			int[] num0 = new int[max];
-			int[] num1 = new int[max];
-			int[] dp0 = new int[max+2];
-			int[] dp1 = new int[max+2];
+			String[] inputs = in.nextLine().split(" ");
+			long N = Long.parseLong(inputs[0]);
+			long M = Long.parseLong(inputs[1]);
+			long ans = 0;
 
-
+			if(N==1 & M==2){
+				ans = 1;
+			} else {
+				ans = power(longArr[N]-1,M,MODULO);
+			}
+			
+			out.write(ans+"\n");		
 		}
 		out.flush();
 	}
 
-//	static void funct(FastReader in, BufferedWriter out){
-//		String input = in.nextLine();
-//		String[] inpArr = input.split("");
-//		int n = input.length();
-//		int pos = -1;
-//		for (int i=0;i<n ;i++ ) {
-//			if(Integer.parseInt(inpArr[i])==0){
-//				for (int j=pos+1;j<=i ;j++ ) {
-//					num0[j]=i
-//				}
-//				pos=i;
-//			}
-//		}
-//		for (int i = pos+1;i<n ;i++ ) {
-//			num0[i]=n;
-//		}
-//		if (num0[0]==n) {
-//			out.write("0\n");
-//			return 0;
-//		}
-//		pos=-1;
-//		for (int i=0;i<n ; i++) {
-//			if(Integer.parseint(inpArr[i])==1){
-//				for (int j=pos+1;j<=i ;j++ ) {
-//					num1[j]=i
-//				}
-//				pos=i;
-//			}
-//		}
-//		if () {
-//
-//		}
-//	}
+	static long power(long x, long y, long p)
+	  {
+	    long res = 1; // Initialize result
+	 
+	    x = x % p; // Update x if it is more than or
+	    // equal to p
+	 
+	    if (x == 0)
+	      return 0; // In case x is divisible by p;
+	 
+	    while (y > 0)
+	    {
+	 
+	      // If y is odd, multiply x with result
+	      if ((y & 1) != 0)
+	        res = (res * x) % p;
+	 
+	      // y must be even now
+	      y = y >> 1; // y = y/2
+	      x = (x * x) % p;
+	    }
+	    return res;
+	  }
 	
 	static class FastReader{
 	    BufferedReader br;
