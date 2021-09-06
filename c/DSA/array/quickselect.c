@@ -54,10 +54,10 @@ int quickselect(int arr[],int low, int high, int k){
 		}
 }
 
-void main(){
-		int arr[] = {2,6,1,8,70,4,5,30,9,0,100,10,20,50,40};
-		int k = 4;
-		int len = sizeof(arr)/sizeof(arr[0]);
-		int eind = quickselect(arr,0,len-1,k-1);
-		printf("%d smallest Element: %d",k,arr[eind]);
-}
+//void main(){
+//		int arr[] = {2,6,1,8,70,4,5,30,9,0,100,10,20,50,40};
+//		int k = 4;
+//		int len = sizeof(arr)/sizeof(arr[0]);
+//		int eind = quickselect(arr,0,len-1,k-1);
+//		printf("%d smallest Element: %d",k,arr[eind]);
+//}
