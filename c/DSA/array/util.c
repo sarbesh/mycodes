@@ -34,8 +34,8 @@ int partision(int arr[], int low, int high){
 
 	printf("low: %d, high: %d, arr[%d]: %d \n",i,j,pivot,arr[pivot]);
 
-	if(i<j){
-		while(arr[i]<=arr[pivot]){
+	while(i<j){
+		while(arr[i]<arr[pivot]){
 			i++;
 		}
 		while(arr[j]>arr[pivot]){

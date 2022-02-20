@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 void printArray(int arr[], int i, int n){
 		printf("Array: ");
@@ -22,22 +23,23 @@ void swap(int arr[], int i, int j){
 
 int partision(int arr[], int low, int high){
 	if(low!=high){
-		int pivot = (low+high)/2;
+		int pivot = arr[low];
 		int i=low;
 		int j=high;
-		printf("pivot: %d\n",arr[pivot]);
-		if(i<j){
-				while(arr[i]<=arr[pivot]){
+		printArray(arr,low,high);
+		printf("pivot: %d\n",pivot);	
+		while(i<j){
+				do{	
 						i++;
-				}
-				while(arr[j]>arr[pivot]){
+				}while(arr[i]<=pivot);
+				do{
 						j--;
-				}
+				}while(arr[j]>pivot);
 				if(i<j){
 					swap(arr,i,j);
 				}
 		}
-		swap(arr,pivot,j);
+		swap(arr,low,j);
 		return j;
 	}
 }
@@ -51,10 +53,10 @@ void quicksort(int arr[], int low, int high){
 		}
 }
 int main(){
-		int arr[] = {13,15,2,6,1,9,4,0,45};
+		int arr[] = {9,13,18,8,15,2,6,1,19,4,0,7,45,3};
 		int len = sizeof(arr)/sizeof(arr[0]);
 		printArray(arr,0,len);
-		quicksort(arr,0,len-1);
+		quicksort(arr,0,len);
 		printArray(arr,0,len);
 		return 0;
 }
