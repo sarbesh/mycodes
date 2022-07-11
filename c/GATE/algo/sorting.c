@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<pthread.h>
 
 void swap(int* arr, int i, int j){
-    printf("\n swapping %d: %d, %d: %d\n", i,arr[i],j,arr[j]);
+    // printf("\n swapping %d: %d, %d: %d\n", i,arr[i],j,arr[j]);
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp; 
@@ -174,6 +175,30 @@ void findDifference(){
     printf("\n");
 }
 
+struct sorting
+{
+    /* data */
+    int* arr;
+    int start;
+    int end;
+};
+
+
+/*
+* get median point for an array with start and end indexe's
+* this method uses the original proposed algorithem by Tony Hoare
+* in the early 1960's
+*
+* This considers the first element as pivot element and two pointers left and right
+* we will try to have the element's lower to the left smaller than pivot and
+* higher to the right greater than the pivot
+*
+* left start's after pivot and right at the end
+* increment left untill you find value greater than pivot
+* decrement right untill you find value lower than pivot
+* swap the left and right index values and inc/dec them respectively
+* 
+*/
 int pivotpartision(int *arr, int start, int end){ 
     printf("\nstart: %d, end: %d \t",start,end);
     int pivot = arr[start];
@@ -188,20 +213,50 @@ int pivotpartision(int *arr, int start, int end){
         }
         if(left<right){
             swap(arr,left,right);
+            left++;
+            right--;
         }
     }
     if(start!=right){
         swap(arr, start, right);
     }
-    printf("\t right: %d, left: %d \n",right,left);
+    // printf("\t right: %d, left: %d \n",right,left);
     return right;
 }
 
-void quicksort2(int* arr, int start, int end){
+void *quicksort2(void *arg){
+    struct sorting *args = arg; 
+    int* arr = args -> arr;
+    int start = args -> start;
+    int end = args -> end;
     if(start<end){ 
+        pthread_t threads[2];
         int pivot = pivotpartision(arr,start,end);
-        quicksort2(arr,start,pivot-1);
-        quicksort2(arr,pivot+1,end);
+        // quicksort2(arr,start,pivot-1);
+        // quicksort2(arr,pivot+1,end);
+        struct sorting s1;
+        s1.arr=arr;
+        s1.start=start;
+        s1.end=pivot-1;
+        struct sorting s2;
+        s2.arr=arr;
+        s2.start=pivot+1;
+        s2.end=end;
+        int rc1;
+        int rc2;
+        rc1 = pthread_create(&threads[0], NULL, &quicksort2, (void *)&s1 );
+        rc2 = pthread_create(&threads[1], NULL, &quicksort2, (void *)&s2 );
+        if(rc1){
+            printf("Error:unable to create thread, %d\n", rc1);
+            exit(-1);
+        }
+        if(rc2){
+            printf("Error:unable to create thread, %d\n", rc2);
+            exit(-1);
+        }
+        pthread_join(threads[0], NULL);
+        pthread_join(threads[1], NULL);
+        // pthread_exit(NULL);
     }
 }
 
@@ -218,10 +273,22 @@ int main(){
     // discardDuplicates();
     // findIntersection();
     // findDifference();
-    quicksort2(arr, 0, size-1);
+    pthread_t threads[1];
+    struct sorting s;
+    s.arr = arr;
+    s.start=0;
+    s.end=size-1;
+    int rc;
+    rc = pthread_create(&threads[0], NULL, &quicksort2, (void *)&s );
+    if(rc){
+        printf("Error:unable to create thread, %d\n", rc);
+        exit(-1);
+    }
+    pthread_join(threads[0], NULL);
     printf("\nafter: \n");
     for(int i=0; i<size; i++){
         printf("%d,",arr[i]);
     }
     return 0;
+    // pthread_exit(NULL);
 }
