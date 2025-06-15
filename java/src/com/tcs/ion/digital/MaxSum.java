@@ -1,4 +1,4 @@
-package com.tcs.ion;
+package com.tcs.ion.digital;
 
 //Determine from this space saperated array what will be the maximum profit one can make.
 //        rules- the money has to be in increasing order like 2,3,200 the the profit is 205

@@ -6,7 +6,7 @@ import java.math.*;
 
 
 // Remember that the class name should be "Main" and should be "public".
-public class Main {
+public class SHROUTE {
 	public static void main(String[] args) throws Exception {
 		FastReader in  = new FastReader();
 		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));

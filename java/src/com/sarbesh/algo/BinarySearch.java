@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class BinarySearch {
     public static void main(String[] args) {
         String[] ar = { "contribute", "geeks", "ide", "practice","hell","bell","best","test"};
-        String x = "tell";
-        int result = Arrays.binarySearch(ar,x);
-        System.out.println(result);
+        String xw = "tell";
+        int resultw = Arrays.binarySearch(ar,xw);
+        System.out.println(resultw);
 
         BinarySearch ob = new BinarySearch();
         int arr[] = { 2, 3, 4, 10, 40 }; 

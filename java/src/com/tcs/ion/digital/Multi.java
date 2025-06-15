@@ -1,4 +1,4 @@
-package com.tcs.ion;
+package com.tcs.ion.digital;
 
 //Multiply the values provided in a space separated line.
 

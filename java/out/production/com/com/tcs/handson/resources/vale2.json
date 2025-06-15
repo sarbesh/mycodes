@@ -1,0 +1,4 @@
+{
+	"id": "vale2",
+	"expression": "('true.equals(isExp1)' || 'true.equals(isExp2)') && 'false'.equals(isExp3) && ('true.equals(isExp1)' || 'true.equals(isExp5)')"
+}

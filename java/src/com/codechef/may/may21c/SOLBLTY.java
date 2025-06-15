@@ -1,4 +1,6 @@
-import java.util*;
+package com.codechef.may.may21c;
+
+import java.util.*;
 import java.lang.*;
 
 class SOLBLTY{

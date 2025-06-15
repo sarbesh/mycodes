@@ -1,4 +1,4 @@
-// Given sequence find nth value
+package com.tcs.ion.digital;// Given sequence find nth value
 //1 2 3 4 5 6 7 8 9......
 //0 0 2 1 4 3 6 5 8......
 // Example:
@@ -8,9 +8,8 @@
 
 import java.util.*;
 import java.lang.*;
-import java.io.*;
 
-public class aeqAG{
+public class seqAG {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

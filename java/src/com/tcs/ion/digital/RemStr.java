@@ -1,4 +1,4 @@
-package com.tcs.ion;
+package com.tcs.ion.digital;
 
 //Remove "7" and "56" from string and print
 
